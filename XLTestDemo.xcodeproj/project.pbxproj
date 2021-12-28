@@ -18,6 +18,7 @@
 		250E4EB38A5C03DDD5C9663A /* Pods_XLTestDemoTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 77838A605494B44DE72B509B /* Pods_XLTestDemoTests.framework */; };
 		DC9FEE27A4B7A9F84C514BB4 /* Pods_XLTestDemo.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = ABE1830FBAFA2B367657CB8A /* Pods_XLTestDemo.framework */; };
 		E73573F62E3137022474134B /* Pods_XLTestDemo_XLTestDemoUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AEF4EDF6388362FDEC4D5000 /* Pods_XLTestDemo_XLTestDemoUITests.framework */; };
+		E795DBE9277B4F990084F9B0 /* User.m in Sources */ = {isa = PBXBuildFile; fileRef = E795DBE8277B4F990084F9B0 /* User.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -63,6 +64,8 @@
 		ABE1830FBAFA2B367657CB8A /* Pods_XLTestDemo.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_XLTestDemo.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		AEF4EDF6388362FDEC4D5000 /* Pods_XLTestDemo_XLTestDemoUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_XLTestDemo_XLTestDemoUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		C3D68F19213EA6E616337674 /* Pods-XLTestDemo.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-XLTestDemo.release.xcconfig"; path = "Target Support Files/Pods-XLTestDemo/Pods-XLTestDemo.release.xcconfig"; sourceTree = "<group>"; };
+		E795DBE7277B4F990084F9B0 /* User.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = User.h; sourceTree = "<group>"; };
+		E795DBE8277B4F990084F9B0 /* User.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = User.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -118,6 +121,7 @@
 		18893B3E266B5851001C69B9 /* XLTestDemo */ = {
 			isa = PBXGroup;
 			children = (
+				E795DBE5277B4F5A0084F9B0 /* AffectingValueForKey */,
 				18893B3F266B5851001C69B9 /* AppDelegate.h */,
 				18893B40266B5851001C69B9 /* AppDelegate.m */,
 				18893B45266B5851001C69B9 /* ViewController.h */,
@@ -170,6 +174,15 @@
 				403127912A2CCFEB73A1F8A4 /* Pods-XLTestDemoTests.release.xcconfig */,
 			);
 			path = Pods;
+			sourceTree = "<group>";
+		};
+		E795DBE5277B4F5A0084F9B0 /* AffectingValueForKey */ = {
+			isa = PBXGroup;
+			children = (
+				E795DBE7277B4F990084F9B0 /* User.h */,
+				E795DBE8277B4F990084F9B0 /* User.m */,
+			);
+			path = AffectingValueForKey;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -409,6 +422,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E795DBE9277B4F990084F9B0 /* User.m in Sources */,
 				18893B47266B5851001C69B9 /* ViewController.m in Sources */,
 				18893B41266B5851001C69B9 /* AppDelegate.m in Sources */,
 				18893B52266B5852001C69B9 /* main.m in Sources */,

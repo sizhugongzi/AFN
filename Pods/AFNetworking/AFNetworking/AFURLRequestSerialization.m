@@ -1205,7 +1205,7 @@ typedef enum {
 
 @end
 
-#pragma mark -
+#pragma mark - AFJSONRequestSerializer
 
 @implementation AFJSONRequestSerializer
 
@@ -1296,7 +1296,7 @@ typedef enum {
 
 @end
 
-#pragma mark -
+#pragma mark - AFPropertyListRequestSerializer
 
 @implementation AFPropertyListRequestSerializer
 

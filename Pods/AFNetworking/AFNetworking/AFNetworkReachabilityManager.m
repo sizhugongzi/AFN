@@ -210,6 +210,21 @@ static void AFNetworkReachabilityReleaseCallback(const void *info) {
         return strongSelf;
     };
     
+    /**
+     typedef struct {
+         CFIndex        version;
+         void *        __nullable info;
+         const void    * __nonnull (* __nullable retain)(const void *info);
+         void        (* __nullable release)(const void *info);
+         CFStringRef    __nonnull (* __nullable copyDescription)(const void *info);
+     } SCNetworkReachabilityContext;
+     1. 第一个参数接受一个signed long 的参数
+     2. 第二个参数接受一个void * 类型的值，相当于oc的id类型，void * 可以指向任何类型的参数
+     3. 第三个参数 是一个函数 目的是对info做retain操作，
+     4. 第四个参数是一个函数，目的是对info做release操作
+     5. 第五个参数是 一个函数，根据info获取Description字符串
+     */
+    
     // 声明SCNetworkReachabilityContext结构体  生成网络监控上下文
     SCNetworkReachabilityContext context = {0, (__bridge void *)callback, AFNetworkReachabilityRetainCallback, AFNetworkReachabilityReleaseCallback, NULL};
     // 设置回调

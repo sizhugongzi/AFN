@@ -128,10 +128,6 @@
     [downloadTask resume];
 }
 
-- (void)test3 {
-    
-}
-
 - (void)test2 {
     //一:提交数据是JSON格式
     NSMutableDictionary *dict = [[NSMutableDictionary alloc]init];
