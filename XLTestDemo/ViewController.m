@@ -6,6 +6,7 @@
 //
 
 #import "ViewController.h"
+#import "OneViewController.h"
 #import <AFNetworking/AFNetworking.h>
 
 @interface ViewController ()<NSURLSessionDelegate>
@@ -14,27 +15,122 @@
 
 @implementation ViewController
 
+- (void)oneVC {
+    OneViewController *vc = [[OneViewController alloc] init];
+    vc.hidesBottomBarWhenPushed = YES;
+    [self.navigationController pushViewController:vc animated:YES];
+}
+
 - (void)viewDidLoad {
     [super viewDidLoad];
     
     self.view.backgroundColor = [UIColor lightGrayColor];
-    //是否支持非法的证书（例如自签名证书）
-//    @property (nonatomic, assign) BOOL allowInvalidCertificates;
-    //是否去验证证书域名是否匹配
-//    @property (nonatomic, assign) BOOL validatesDomainName;
-    //Https单向认证和双向认证。Https单向认证和双向认证
+    UIButton *button = [UIButton buttonWithType:UIButtonTypeCustom];
+    [button addTarget:self action:@selector(oneVC) forControlEvents:UIControlEventTouchUpInside];
+    button.frame = CGRectMake(0 , 0, 44, 44);
+    button.backgroundColor = [UIColor orangeColor];
+    [self.view addSubview:button];
+    
+    // 设置rightBarButtonItem
+    UIBarButtonItem *rightItem = [[UIBarButtonItem alloc] initWithCustomView:button];
+    self.navigationItem.rightBarButtonItem = rightItem;
 }
 
 - (void)touchesBegan:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event {
-    [self session];
+    [self multipleRequests];
+}
+
+#pragma mark - iOS实现多个网络请求ABC执行完再执行D
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+#pragma mark - iOS中多个有依赖的网络请求的顺序执行
+- (void)multipleRequests {
+    //创建串行队列
+    dispatch_queue_t customQuue = dispatch_queue_create("com.wumeng.network", DISPATCH_QUEUE_SERIAL);
+    //创建信号量并初始化总量为1
+    dispatch_semaphore_t semaphoreLock = dispatch_semaphore_create(0);
+    //添加任务
+    dispatch_async(customQuue, ^{
+        //发送第一个请求
+        AFHTTPSessionManager *manager = [AFHTTPSessionManager manager];
+        manager.responseSerializer = [AFHTTPResponseSerializer serializer];
+        manager.responseSerializer.acceptableContentTypes = [NSSet setWithObjects:@"text/html", nil];
+        
+        [manager GET:@"https://www.baidu.com" parameters:nil headers:nil progress:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
+            NSLog(@"第一个请求完成");
+            //dispatch_semaphore_signal发送一个信号，让信号总量加1,相当于解锁
+            dispatch_semaphore_signal(semaphoreLock);
+        } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
+            dispatch_semaphore_signal(semaphoreLock);
+        }];
+        
+        // 相当于加锁
+        dispatch_semaphore_wait(semaphoreLock, DISPATCH_TIME_FOREVER);
+        //发送第二个请求
+        [manager GET:@"https://www.baidu.com" parameters:nil headers:nil progress:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
+            NSLog(@"第二个请求完成");
+            //dispatch_semaphore_signal发送一个信号，让信号总量加1,相当于解锁
+            dispatch_semaphore_signal(semaphoreLock);
+        } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
+            dispatch_semaphore_signal(semaphoreLock);
+        }];
+        
+        // 相当于加锁
+        dispatch_semaphore_wait(semaphoreLock, DISPATCH_TIME_FOREVER);
+        //发送第三个请求
+        [manager GET:@"http://www.baidu.com" parameters:nil headers:nil progress:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
+            NSLog(@"第三个请求完成");
+            //dispatch_semaphore_signal发送一个信号，让信号总量加1,相当于解锁
+            dispatch_semaphore_signal(semaphoreLock);
+        } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
+            dispatch_semaphore_signal(semaphoreLock);
+        }];
+        
+        // 相当于加锁
+        dispatch_semaphore_wait(semaphoreLock, DISPATCH_TIME_FOREVER);
+        //发送第四个请求
+        [manager GET:@"https://www.baidu.com" parameters:nil headers:nil progress:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
+            NSLog(@"第四个请求完成");
+            //dispatch_semaphore_signal发送一个信号，让信号总量加1,相当于解锁
+            dispatch_semaphore_signal(semaphoreLock);
+        } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
+            dispatch_semaphore_signal(semaphoreLock);
+        }];
+        
+        dispatch_semaphore_wait(semaphoreLock, DISPATCH_TIME_FOREVER);
+        dispatch_async(dispatch_get_main_queue(), ^{
+            NSLog(@"任务完成");
+        });
+    });
 }
 
 - (void)session {
     NSURLSessionConfiguration *sessionConfiguration = [NSURLSessionConfiguration defaultSessionConfiguration];
     NSURLSession *session = [NSURLSession sessionWithConfiguration:sessionConfiguration delegate:self delegateQueue:Nil];
     NSURLSessionTask *task = [session dataTaskWithURL:[NSURL URLWithString:@"https://www.baidu.com/"] completionHandler:^(NSData * _Nullable data, NSURLResponse * _Nullable response, NSError * _Nullable error) {
-//        NSLog(@"error:%@",error);
-//        NSLog(@"data:%@",[[NSString alloc]initWithData:data encoding:NSUTF8StringEncoding]);
+        NSLog(@"error:%@",error);
+        NSLog(@"data:%@",[[NSString alloc]initWithData:data encoding:NSUTF8StringEncoding]);
         NSLog(@"NSURLResponse");
     }];
     [task resume];
@@ -58,38 +154,9 @@
     [task resume];
 }
 
-
-
-//如果接口返回的 Content-Type 和实际情况不合时，有时候是因为后端开发人员不规范，更有遇到一套接口中大多都是JSON返回，还有个别方法返回纯文本，如：“YES”，这些都是接口开发人员不规范导致的问题，作为iOS端，解决方案：
-//
-//responseSerializer 使用 AFHTTPResponseSerializer，这样就不能享受 AFNetworking 自带的JSON解析功能了，拿到 responseObject 就是一个　Data 对象，需要自己根据需要进行反序列化。
-#pragma mark - Public Method
-- (void)postWithManager:(id)requestOperationManager
-                success:(nullable void (^)(NSURLSessionDataTask *task, id _Nullable responseObject))success
-                failure:(nullable void (^)(NSURLSessionDataTask * _Nullable task, NSError *error))failure{
-    
-    AFHTTPSessionManager *manager = [AFHTTPSessionManager manager];
-    manager.requestSerializer = [AFJSONRequestSerializer serializer];
-    manager.responseSerializer = [AFHTTPResponseSerializer serializer];
-    manager.responseSerializer.acceptableContentTypes = [NSSet setWithObjects:@"application/json",@"text/json", @"text/plain", @"text/html", nil];
-    [manager POST:@"hhts://www.baidu.com" parameters:nil headers:nil
-         progress:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
-        //成功
-        if (success) {
-            success(task,responseObject);
-        }
-    } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
-        if(failure) {
-            failure(task,error);
-        }
-    }];
-}
-
+//三：上传图片操作：
 - (void)test5 {
-    //三：上传图片操作：
     UIImage *image = [UIImage imageNamed:@"one.png"];
-    AFHTTPSessionManager *manager = [AFHTTPSessionManager manager];
-    
     NSData *imageData = UIImageJPEGRepresentation(image, 1);
     NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
     formatter.dateFormat = @"yyyyMMddHHmmss";
@@ -98,11 +165,12 @@
     NSLog(@"fileName == %@",fileName);
     NSDictionary *parameters = @{@"filename":fileName};
     
+    AFHTTPSessionManager *manager = [AFHTTPSessionManager manager];
     //申明请求的数据是json类型
     manager.requestSerializer = [AFJSONRequestSerializer serializer];
     //如果报接受类型不一致请替换一致text/html或别的
     manager.responseSerializer.acceptableContentTypes = [NSSet setWithObject:@"text/html"];
-    [manager POST:@"http://XXX" parameters:parameters headers:nil constructingBodyWithBlock:^(id<AFMultipartFormData>  _Nonnull formData) {
+    [manager POST:@"https://www.baidu.com" parameters:parameters headers:nil constructingBodyWithBlock:^(id<AFMultipartFormData>  _Nonnull formData) {
         // 上传图片，以文件流的格式
         [formData appendPartWithFileData:imageData name:@"img" fileName:fileName mimeType:@"image/png"];
     } progress:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
@@ -128,11 +196,11 @@
     [downloadTask resume];
 }
 
+//一:提交数据是JSON格式
 - (void)test2 {
-    //一:提交数据是JSON格式
-    NSMutableDictionary *dict = [[NSMutableDictionary alloc]init];
+    NSMutableDictionary *dict = [NSMutableDictionary dictionary];
     [dict setObject:@"apple" forKey:@"brand"];
-    NSString *url=@"http://xxxxx";
+    NSString *url = @"https://www.baidu.com/";
     AFHTTPSessionManager *manager = [AFHTTPSessionManager manager];
     manager.responseSerializer = [AFJSONResponseSerializer serializer];//申明返回的结果是json类型
     manager.responseSerializer.acceptableContentTypes = [NSSet setWithObject:@"text/html"];//如果报接受类型不一致请替换一致text/html或别的
