@@ -35,4 +35,8 @@
     //test------developer-1.1.0
 }
 
+- (void)test2 {
+    //test2------developer-1.1.0
+}
+
 @end
