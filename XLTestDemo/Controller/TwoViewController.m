@@ -24,4 +24,11 @@
     //我在developer-1.1.0随便做了一点修改,哈哈哈.
 }
 
+- (void)touchesEnded:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event {
+    //touchesEnded------developer-1.1.0
+    //touchesEnded------developer-1.1.0
+    //touchesEnded------developer-1.1.0
+    //touchesEnded------developer-1.1.0
+}
+
 @end
