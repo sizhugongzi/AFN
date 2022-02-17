@@ -31,4 +31,8 @@
     //touchesEnded------developer-1.1.0
 }
 
+- (void)test {
+    //test------developer-1.1.0
+}
+
 @end
