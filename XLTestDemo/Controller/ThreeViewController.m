@@ -19,4 +19,10 @@
     //这是developer-1.2.0
 }
 
+
+- (void)touchesBegan:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event {
+    //这是developer-1.2.0
+    //随便写点什么吧,毕竟也玩了这么多年...
+}
+
 @end
