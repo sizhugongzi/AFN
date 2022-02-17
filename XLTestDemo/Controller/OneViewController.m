@@ -5,6 +5,56 @@
 //  Created by Silence.L on 2021/12/29.
 //
 
+// 1. 上传文件类型的数据
+//- (NSURLSessionUploadTask *)uploadTaskWithRequest:(NSURLRequest *)request
+//fromFile:(NSURL *)fileURL
+//progress:(NSProgress * __autoreleasing *)progress
+//completionHandler:(void (^)(NSURLResponse *response, id responseObject, NSError *error))completionHandler
+/**
+* fileURL：所要上传文件的路径
+*/
+
+// 2. 上传NSData类型的数据
+//- (NSURLSessionUploadTask *)uploadTaskWithRequest:(NSURLRequest *)request
+//fromData:(NSData *)bodyData
+//progress:(NSProgress * __autoreleasing *)progress
+//completionHandler:(void (^)(NSURLResponse *response, id responseObject, NSError *error))completionHandler
+/**
+* bodyData：所要上传的文件数据
+*/
+
+// 3. 上传流数据
+//- (NSURLSessionUploadTask *)uploadTaskWithStreamedRequest:(NSURLRequest *)request
+//progress:(NSProgress * __autoreleasing *)progress
+//completionHandler:(void (^)(NSURLResponse *response, id responseObject, NSError *error))completionHandler
+/**
+* request：通过流数据初始化的请求对象
+*/
+
+
+// 1. 普通下载任务
+//- (NSURLSessionDownloadTask *)downloadTaskWithRequest:(NSURLRequest *)request
+//progress:(NSProgress * __autoreleasing *)progress
+//destination:(NSURL * (^)(NSURL *targetPath, NSURLResponse *response))destination
+//completionHandler:(void (^)(NSURLResponse *response, NSURL *filePath, NSError *error))completionHandler
+/**
+* progress：管理下载进度
+* destination：保存数据调用的Block
+    * targetPath：数据的保存路径
+    * 服务器的响应信息
+*/
+
+// 2. 支持断点下载的下载任务
+//- (NSURLSessionDownloadTask *)downloadTaskWithResumeData:(NSData *)resumeData
+//progress:(NSProgress * __autoreleasing *)progress
+//destination:(NSURL * (^)(NSURL *targetPath, NSURLResponse *response))destination
+//completionHandler:(void (^)(NSURLResponse *response, NSURL *filePath, NSError *error))completionHandler
+/**
+* progress：管理下载进度
+* resumeData：断点下载时的断点信息
+*/
+
+
 #import "OneViewController.h"
 #import <AFNetworking/AFNetworking.h>
 
