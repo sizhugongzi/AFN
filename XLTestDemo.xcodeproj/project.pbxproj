@@ -19,6 +19,7 @@
 		DC9FEE27A4B7A9F84C514BB4 /* Pods_XLTestDemo.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = ABE1830FBAFA2B367657CB8A /* Pods_XLTestDemo.framework */; };
 		E73573F62E3137022474134B /* Pods_XLTestDemo_XLTestDemoUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AEF4EDF6388362FDEC4D5000 /* Pods_XLTestDemo_XLTestDemoUITests.framework */; };
 		E78C704427BEA8090033BC36 /* TwoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E78C704327BEA8090033BC36 /* TwoViewController.m */; };
+		E78C704727BEAC700033BC36 /* ThreeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E78C704627BEAC700033BC36 /* ThreeViewController.m */; };
 		E795DBE9277B4F990084F9B0 /* User.m in Sources */ = {isa = PBXBuildFile; fileRef = E795DBE8277B4F990084F9B0 /* User.m */; };
 		E80DC7E3277C477300785D1F /* OneViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E80DC7E2277C477300785D1F /* OneViewController.m */; };
 /* End PBXBuildFile section */
@@ -68,6 +69,8 @@
 		C3D68F19213EA6E616337674 /* Pods-XLTestDemo.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-XLTestDemo.release.xcconfig"; path = "Target Support Files/Pods-XLTestDemo/Pods-XLTestDemo.release.xcconfig"; sourceTree = "<group>"; };
 		E78C704227BEA8090033BC36 /* TwoViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TwoViewController.h; sourceTree = "<group>"; };
 		E78C704327BEA8090033BC36 /* TwoViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TwoViewController.m; sourceTree = "<group>"; };
+		E78C704527BEAC700033BC36 /* ThreeViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ThreeViewController.h; sourceTree = "<group>"; };
+		E78C704627BEAC700033BC36 /* ThreeViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ThreeViewController.m; sourceTree = "<group>"; };
 		E795DBE7277B4F990084F9B0 /* User.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = User.h; sourceTree = "<group>"; };
 		E795DBE8277B4F990084F9B0 /* User.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = User.m; sourceTree = "<group>"; };
 		E80DC7E1277C477300785D1F /* OneViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = OneViewController.h; sourceTree = "<group>"; };
@@ -199,6 +202,8 @@
 				E80DC7E2277C477300785D1F /* OneViewController.m */,
 				E78C704227BEA8090033BC36 /* TwoViewController.h */,
 				E78C704327BEA8090033BC36 /* TwoViewController.m */,
+				E78C704527BEAC700033BC36 /* ThreeViewController.h */,
+				E78C704627BEAC700033BC36 /* ThreeViewController.m */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -441,6 +446,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				E795DBE9277B4F990084F9B0 /* User.m in Sources */,
+				E78C704727BEAC700033BC36 /* ThreeViewController.m in Sources */,
 				E80DC7E3277C477300785D1F /* OneViewController.m in Sources */,
 				18893B47266B5851001C69B9 /* ViewController.m in Sources */,
 				E78C704427BEA8090033BC36 /* TwoViewController.m in Sources */,
@@ -626,7 +632,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.1.0;
+				MARKETING_VERSION = 1.2.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.longge.XLTestDemo;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -647,7 +653,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.1.0;
+				MARKETING_VERSION = 1.2.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.longge.XLTestDemo;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TARGETED_DEVICE_FAMILY = "1,2";
