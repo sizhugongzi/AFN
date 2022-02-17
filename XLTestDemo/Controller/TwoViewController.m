@@ -20,5 +20,8 @@
     //这是developer-1.1.0
 }
 
+- (void)touchesBegan:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event {
+    //我在developer-1.1.0随便做了一点修改,哈哈哈.
+}
 
 @end
