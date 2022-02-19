@@ -23,6 +23,7 @@
 		E795DBE9277B4F990084F9B0 /* User.m in Sources */ = {isa = PBXBuildFile; fileRef = E795DBE8277B4F990084F9B0 /* User.m */; };
 		E7CA072727C0A75A00813E23 /* FourViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E7CA072627C0A75A00813E23 /* FourViewController.m */; };
 		E7CA072A27C0EF1F00813E23 /* FiveViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E7CA072927C0EF1F00813E23 /* FiveViewController.m */; };
+		E7CA072D27C0F23A00813E23 /* SixViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E7CA072C27C0F23A00813E23 /* SixViewController.m */; };
 		E80DC7E3277C477300785D1F /* OneViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E80DC7E2277C477300785D1F /* OneViewController.m */; };
 /* End PBXBuildFile section */
 
@@ -79,6 +80,8 @@
 		E7CA072627C0A75A00813E23 /* FourViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FourViewController.m; sourceTree = "<group>"; };
 		E7CA072827C0EF1F00813E23 /* FiveViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FiveViewController.h; sourceTree = "<group>"; };
 		E7CA072927C0EF1F00813E23 /* FiveViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FiveViewController.m; sourceTree = "<group>"; };
+		E7CA072B27C0F23A00813E23 /* SixViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SixViewController.h; sourceTree = "<group>"; };
+		E7CA072C27C0F23A00813E23 /* SixViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SixViewController.m; sourceTree = "<group>"; };
 		E80DC7E1277C477300785D1F /* OneViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = OneViewController.h; sourceTree = "<group>"; };
 		E80DC7E2277C477300785D1F /* OneViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = OneViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -214,6 +217,8 @@
 				E7CA072627C0A75A00813E23 /* FourViewController.m */,
 				E7CA072827C0EF1F00813E23 /* FiveViewController.h */,
 				E7CA072927C0EF1F00813E23 /* FiveViewController.m */,
+				E7CA072B27C0F23A00813E23 /* SixViewController.h */,
+				E7CA072C27C0F23A00813E23 /* SixViewController.m */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -464,6 +469,7 @@
 				E78C704427BEA8090033BC36 /* TwoViewController.m in Sources */,
 				18893B41266B5851001C69B9 /* AppDelegate.m in Sources */,
 				18893B52266B5852001C69B9 /* main.m in Sources */,
+				E7CA072D27C0F23A00813E23 /* SixViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
