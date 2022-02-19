@@ -21,6 +21,7 @@
 		E78C704427BEA8090033BC36 /* TwoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E78C704327BEA8090033BC36 /* TwoViewController.m */; };
 		E78C704727BEAC700033BC36 /* ThreeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E78C704627BEAC700033BC36 /* ThreeViewController.m */; };
 		E795DBE9277B4F990084F9B0 /* User.m in Sources */ = {isa = PBXBuildFile; fileRef = E795DBE8277B4F990084F9B0 /* User.m */; };
+		E7CA072727C0A75A00813E23 /* FourViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E7CA072627C0A75A00813E23 /* FourViewController.m */; };
 		E80DC7E3277C477300785D1F /* OneViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E80DC7E2277C477300785D1F /* OneViewController.m */; };
 /* End PBXBuildFile section */
 
@@ -73,6 +74,8 @@
 		E78C704627BEAC700033BC36 /* ThreeViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ThreeViewController.m; sourceTree = "<group>"; };
 		E795DBE7277B4F990084F9B0 /* User.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = User.h; sourceTree = "<group>"; };
 		E795DBE8277B4F990084F9B0 /* User.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = User.m; sourceTree = "<group>"; };
+		E7CA072527C0A75A00813E23 /* FourViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FourViewController.h; sourceTree = "<group>"; };
+		E7CA072627C0A75A00813E23 /* FourViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FourViewController.m; sourceTree = "<group>"; };
 		E80DC7E1277C477300785D1F /* OneViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = OneViewController.h; sourceTree = "<group>"; };
 		E80DC7E2277C477300785D1F /* OneViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = OneViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -204,6 +207,8 @@
 				E78C704327BEA8090033BC36 /* TwoViewController.m */,
 				E78C704527BEAC700033BC36 /* ThreeViewController.h */,
 				E78C704627BEAC700033BC36 /* ThreeViewController.m */,
+				E7CA072527C0A75A00813E23 /* FourViewController.h */,
+				E7CA072627C0A75A00813E23 /* FourViewController.m */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -447,6 +452,7 @@
 			files = (
 				E795DBE9277B4F990084F9B0 /* User.m in Sources */,
 				E78C704727BEAC700033BC36 /* ThreeViewController.m in Sources */,
+				E7CA072727C0A75A00813E23 /* FourViewController.m in Sources */,
 				E80DC7E3277C477300785D1F /* OneViewController.m in Sources */,
 				18893B47266B5851001C69B9 /* ViewController.m in Sources */,
 				E78C704427BEA8090033BC36 /* TwoViewController.m in Sources */,
