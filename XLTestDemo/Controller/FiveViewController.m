@@ -60,13 +60,4 @@
     //这是developer-1.7.0做的修改   第二次提交
 }
 
-- (void)test3 {
-    //这是developer-1.7.0做的修改   第三次提交
-    //这是developer-1.7.0做的修改   第三次提交
-    //这是developer-1.7.0做的修改   第三次提交
-    //这是developer-1.7.0做的修改   第三次提交
-    //这是developer-1.7.0做的修改   第三次提交
-    //这是developer-1.7.0做的修改   第三次提交
-}
-
 @end
